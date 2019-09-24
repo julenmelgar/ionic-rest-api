@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Tab One
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="'blogcontainer'">
+    <ngx-masonry [useImagesLoaded]="true" [options]="{ transitionDuration: '0.8s' }">
+        <ion-card ngxMasonryItem class="masonry-item welcome-card" *ngFor="let blog of blogsObservable | async">
+            <img src="{{ blogService.baseUrl + blog.image}}" alt=""/>
+            <ion-card-header>
+                <ion-card-title>{{blog.title}}</ion-card-title>
+            </ion-card-header>
+        </ion-card>
+    </ngx-masonry>
+</ion-content>
